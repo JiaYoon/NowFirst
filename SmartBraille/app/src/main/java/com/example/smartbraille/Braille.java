@@ -1,5 +1,7 @@
 package com.example.smartbraille;
 
+import android.util.Log;
+
 public class Braille {
     final int ASCII_space = 32;
     final int ASCII_A = 65;
@@ -27,17 +29,17 @@ public class Braille {
         for (int i=0; i<length; i++) {
             int ascii = (int)(s.charAt(i));
 
-            if (ascii==ASCII_space) data.concat(BrailleData_space); // 스페이스
+            if (ascii==ASCII_space) data = data.concat(BrailleData_space); // 스페이스
 
-            else if (ascii >= ASCII_A && ascii >= ASCII_Z) { // 대문자
+            else if (ascii >= ASCII_A && ascii <= ASCII_Z) { // 대문자
                 int index = ascii - ASCII_A;
-                data.concat("000001");
-                data.concat(BrailleData_alphabet[index]);
+                data = data.concat("000001");
+                data = data.concat(BrailleData_alphabet[index]);
             }
 
-            else if (ascii >= ASCII_a && ascii >= ASCII_z) { // 소문자
+            else if (ascii >= ASCII_a && ascii <= ASCII_z) { // 소문자
                 int index = ascii - ASCII_a;
-                data.concat(BrailleData_alphabet[index]);
+                data = data.concat(BrailleData_alphabet[index]);
             }
         }
     }
