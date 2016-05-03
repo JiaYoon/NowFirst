@@ -18,11 +18,28 @@
         android:textSize="24dp" />
 
     <Button
-        android:id="@+id/convert"
+        android:id="@+id/prev"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
-        android:text="convert"/>
+        android:text="prev"
+        android:onClick="myOnClick" />
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:text="next"
+        android:onClick="myOnClick" />
+
+    <Button
+        android:id="@+id/init"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:text="init"
+        android:onClick="myOnClick" />
 
     <TextView
         android:id="@+id/text"

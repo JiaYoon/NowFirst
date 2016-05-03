@@ -22,6 +22,10 @@ public class Braille {
 
     String data;                              // 점자 데이터
 
+    Braille(){
+        data = "";
+    }
+
     Braille(String s) {                       // constructor
         data=""; // initialize
         int length = s.length();
@@ -44,6 +48,29 @@ public class Braille {
         }
     }
 
+    String toBraille(String s) {                       // constructor
+        data=""; // initialize
+        int length = s.length();
+
+        for (int i=0; i<length; i++) {
+            int ascii = (int)(s.charAt(i));
+
+            if (ascii==ASCII_space) data = data.concat(BrailleData_space); // 스페이스
+
+            else if (ascii >= ASCII_A && ascii <= ASCII_Z) { // 대문자
+                int index = ascii - ASCII_A;
+                data = data.concat("000001");
+                data = data.concat(BrailleData_alphabet[index]);
+            }
+
+            else if (ascii >= ASCII_a && ascii <= ASCII_z) { // 소문자
+                int index = ascii - ASCII_a;
+                data = data.concat(BrailleData_alphabet[index]);
+            }
+        }
+
+        return data;
+    }
     public String getString() {              // 점자 데이터를 binary string으로 변환
         return data;
     }
